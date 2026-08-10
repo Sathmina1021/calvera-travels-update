@@ -1,0 +1,284 @@
+/* ========================================
+   CALVERA PLAN YOUR TRIP – SIMPLE THEME
+   (pale peach + teal + orange accents)
+   ======================================== */
+
+:root {
+  --peach: #f5f5dc;      /* Pale peach / light beige */
+  --white: #ffffff;
+  --teal: #2b3e4b;       /* Dark teal for text/accents */
+  --muted: #6b7a86;      /* Muted body text */
+  --orange: #eb9438;     /* Accent */
+  --border: #e7e7e7;     /* Light borders */
+  --radius: 16px;
+  --radius-lg: 20px;
+  --shadow: 0 6px 16px rgba(0,0,0,0.08);
+  --shadow-soft: 0 3px 8px rgba(0,0,0,0.06);
+}
+
+/* Base */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--peach);
+  color: var(--teal);
+  line-height: 1.6;
+}
+
+.plan-trip-page {
+  background: var(--peach);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Sections */
+.section { padding: 48px 0; }
+
+.section-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  text-align: center;
+  margin: 0 0 28px;
+  color:#2b3e4b;
+}
+
+/* ===========================
+   TOUR SCROLL BAR (simple)
+   =========================== */
+.tour-scroll-bar {
+  padding: 24px 0 8px;
+  background: transparent;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin: 0 0 32px 0;
+}
+
+/* Full-width, flat scroller with no shadows */
+.scroll-content {
+  display: flex;
+  gap: 20px;
+  padding: 0 0 12px;     /* remove side padding for true 100% width */
+  width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: #c8c8c8 transparent;
+  box-shadow: none !important;
+  background: transparent;
+}
+.scroll-content::-webkit-scrollbar { height: 6px; }
+.scroll-content::-webkit-scrollbar-thumb {
+  background: #c8c8c8;
+  border-radius: 999px;
+  box-shadow: none !important;
+}
+.scroll-content::-webkit-scrollbar-track { background: transparent; }
+
+/* Cards inside the scroller */
+.tour-card {
+  flex: 0 0 340px;
+  scroll-snap-align: center;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.tour-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.tour-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.tour-info {
+  padding: 16px 18px 20px;
+  background: var(--white);
+}
+.tour-info h4 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--teal);
+}
+.tour-info p {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.tour-info .price {
+  display: inline-block;
+  background: var(--orange);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 10px 16px;
+  border-radius: 999px;
+}
+
+/* ===========================
+   FORM (simple, white cards)
+   =========================== */
+#travel-form {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.form-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-soft);
+}
+
+.form-card h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--teal);
+  margin: 0 0 16px;
+}
+
+/* Checkbox grid */
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: #fafafa;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background .15s ease, border-color .15s ease;
+}
+.checkbox-label:hover { background: #f5f5f5; border-color: #dcdcdc; }
+.checkbox-label input[type="checkbox"] { accent-color: var(--orange); }
+.checkbox-label span { color: var(--teal); font-weight: 600; }
+
+/* Form layout */
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+
+.form-group label {
+  font-size: 0.95rem;
+  color: var(--teal);
+  font-weight: 700;
+}
+
+.form-group input,
+.form-group select,
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--teal);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.form-group input:focus,
+.form-group select:focus,
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px rgba(235, 148, 56, 0.15);
+}
+
+/* Terms */
+.terms-box {
+  background: #fff;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  margin-top: 8px;
+}
+.terms-box label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--teal);
+  font-weight: 600;
+  margin: 8px 0;
+}
+.terms-box input[type="checkbox"] { accent-color: var(--teal); }
+.terms-box a { color: var(--orange); text-decoration: underline; }
+
+/* Submit */
+.submit-btn {
+  width: 100%;
+  max-width: 360px;
+  margin: 28px auto 0;
+  display: block;
+  padding: 14px 20px;
+  background: #eb9438;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 800;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: filter .15s ease, transform .15s ease;
+  box-shadow: var(--shadow-soft);
+}
+.submit-btn:hover { filter: brightness(0.95); transform: translateY(-2px); }
+.submit-btn:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Success */
+.success-message {
+  background: #f0fff5;
+  border: 1px solid #bfe8cd;
+  border-radius: var(--radius);
+  padding: 28px 22px;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+}
+.success-icon { font-size: 3rem; color: #2f9e44; margin-bottom: 8px; }
+.success-message h3 {
+  margin: 0 0 8px;
+  color: var(--teal);
+  font-size: 1.6rem;
+  font-weight: 900;
+}
+.success-message p { margin: 0; color: #3b6b53; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container { padding: 28px 16px; }
+  .tour-card { flex-basis: 300px; }
+}

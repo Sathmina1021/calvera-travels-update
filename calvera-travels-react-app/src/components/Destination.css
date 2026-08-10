@@ -1,0 +1,260 @@
+/* =========================================================
+   Destination.css – Refined Modern UI (Calvera Travels)
+   ========================================================= */
+
+:root {
+  --pale-peach: #ffefd9;
+  --accent-orange: #eb9438;
+  --dark-teal: #2b3e4b;
+  --white: #ffffff;
+  --light-teal: #eaf1f3;
+  --shadow-soft: 0 4px 10px rgba(0, 0, 0, 0.08);
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Poppins", sans-serif;
+}
+
+/* ===== Base Page ===== */
+.destination-page {
+  background: var(--pale-peach);
+  color: var(--dark-teal);
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  padding-top: 0 !important;
+}
+
+/* ===== Section ===== */
+.destinations-section {
+  padding: 60px 0 100px;
+  background: var(--pale-peach);
+}
+
+/* ===== Container (less side space, wider content) ===== */
+.container {
+  max-width: 1400px;   /* wider so cards use more width */
+  margin: 0 auto;
+  padding: 0 10px;     /* reduced side padding */
+}
+
+/* ===== Toolbar ===== */
+.toolbar {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 25px;
+  margin-bottom: 40px;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--dark-teal);
+  background: transparent;
+  color: var(--dark-teal);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background: var(--accent-orange);
+  border-color: var(--accent-orange);
+  color: var(--white);
+}
+
+.filter-btn.active {
+  background: var(--dark-teal);
+  color: var(--white);
+  border-color: var(--dark-teal);
+}
+
+/* ===== Search & Sort ===== */
+.search-sort {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.search-box {
+  position: relative;
+  min-width: 250px;
+  flex: 1;
+  max-width: 350px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 44px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--dark-teal);
+  background: var(--white);
+  color: var(--dark-teal);
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: var(--accent-orange);
+  box-shadow: 0 0 6px rgba(235, 148, 56, 0.4);
+}
+
+.search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--dark-teal);
+  opacity: 0.6;
+}
+
+.clear-search {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--accent-orange);
+  border: none;
+  color: var(--white);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.clear-search:hover {
+  background: var(--dark-teal);
+}
+
+.sort-select {
+  padding: 10px 16px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--dark-teal);
+  background: var(--white);
+  color: var(--dark-teal);
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.sort-select:hover {
+  border-color: var(--accent-orange);
+}
+
+/* ===== Cards Grid (4 per row on desktop) ===== */
+.destinations-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 destinations per row */
+  gap: 24px;
+}
+
+/* ===== Card ===== */
+.destination-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  color: var(--dark-teal);
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.destination-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.destination-card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+.fav-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--accent-orange);
+  border: none;
+  color: var(--white);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.fav-btn:hover {
+  background: var(--dark-teal);
+}
+
+.card-content {
+  padding: 18px;
+  text-align: left;
+}
+
+.card-content h3 {
+  margin: 0 0 8px;
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--dark-teal);
+}
+
+.card-tagline {
+  font-size: 0.95rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1200px) {
+  .destinations-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 per row */
+  }
+}
+
+@media (max-width: 900px) {
+  .destinations-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row */
+  }
+}
+
+@media (max-width: 768px) {
+  .toolbar {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .destinations-grid {
+    grid-template-columns: 1fr; /* 1 per row on phones */
+  }
+}
