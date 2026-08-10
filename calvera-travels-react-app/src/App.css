@@ -1,219 +1,442 @@
+/* =========================================================
+   Calvera Travels - Unified Modern & Creative UI (app.css)
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* --- 1. Global CSS Variables --- */
 :root {
-  --primary-color: #007bff;
-  --secondary-color: #6c757d;
-  --success-color: #28a745;
-  --danger-color: #dc3545;
-  --warning-color: #ffc107;
-  --info-color: #17a2b8;
-  --light-color: #f8f9fa;
-  --dark-color: #343a40;
+  /* Brand Colors */
+  --brand-orange: #ea8f32;
+  --brand-orange-light: #ffb56e;
+  --brand-orange-dark: #d67820;
+  
+  --brand-teal: #2b3e4b;
+  --brand-teal-dark: #1e3234;
+  --brand-teal-light: #4ecdc4;
 
-  --text-color: #333;
-  --bg-color: #fff;
-
-  /* Header bases */
+  --brand-peach: #F5F5DC;
+  --brand-sand: #e9d6b6;
+  --brand-merino: #f6ead3;
+  
+  /* Text & Backgrounds */
+  --text-dark: #111827;
+  --text-muted: #6b7a86;
+  --bg-light: #ffffff;
+  --bg-dark: #0f1e24;
+  
+  /* UI Elements */
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.06);
+  --shadow-medium: 0 16px 40px rgba(15, 23, 42, 0.08);
+  --shadow-warm: 0 20px 50px rgba(234, 143, 50, 0.15);
+  
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+  
+  --font-sans: 'Poppins', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  
+  /* Header Glassmorphism */
   --header-bg: rgba(255, 255, 255, 0.9);
-  --header-glass: rgba(255, 255, 255, 0.15);   /* top, over hero */
+  --header-glass: rgba(255, 255, 255, 0.15);
   --header-glass-scrolled: rgba(255, 255, 255, 0.85);
-
-  --footer-bg: #2c3e50;
-
-  /* Dynamic nav color when glass-over-hero */
-  --nav-link-on-hero: #ffffff;
 }
 
-[data-theme='dark'] {
-  --primary-color: #007bff;
-  --secondary-color: #6c757d;
-  --success-color: #28a745;
-  --danger-color: #dc3545;
-  --warning-color: #ffc107;
-  --info-color: #17a2b8;
-  --light-color: #343a40;
-  --dark-color: #f8f9fa;
-
-  --text-color: #f8f9fa;
-  --bg-color: #212529;
-
-  /* Header bases (dark) */
-  --header-bg: rgba(33, 37, 41, 0.9);
-  --header-glass: rgba(33, 37, 41, 0.28);       /* top, over hero */
-  --header-glass-scrolled: rgba(33, 37, 41, 0.82);
-
-  --footer-bg: #1a1a1a;
-
-  /* Brighter over hero for contrast */
-  --nav-link-on-hero: #fdfdfd;
+/* --- 2. Base Setup --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-/* Reset / base */
-* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-sans);
+  background-color: var(--brand-peach);
+  color: var(--brand-teal);
   line-height: 1.6;
-  color: var(--text-color);
-  background-color: var(--bg-color);
-  transition: background-color 0.3s, color 0.3s;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
-/* Layout utils */
-.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-.page-section { padding: 80px 0; }
-.section-title {
-  text-align: center; font-size: 2.5rem; margin-bottom: 50px;
-  color: var(--primary-color); font-weight: 700;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 800;
+  line-height: 1.2;
 }
-.text-center { text-align: center; }
 
-/* Buttons */
-.btn {
-  display: inline-block; padding: 12px 30px; border: none; border-radius: 50px;
-  text-decoration: none; font-weight: bold; text-transform: uppercase;
-  transition: all 0.3s ease; cursor: pointer;
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
 }
-.btn-primary {
-  background-image: linear-gradient(to right, var(--primary-color), #0056b3);
-  color: white; box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
-}
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
-}
-.btn-secondary { background-color: transparent; color: var(--primary-color); border: 2px solid var(--primary-color); }
-.btn-secondary:hover { background-color: var(--primary-color); color: white; }
 
-/* ===================== HEADER (GLASS) ===================== */
-/*
-Add 'over-hero' class to the header when it sits on top of a hero
-(e.g., <header class="header over-hero">). Your React already toggles
-'scrolled'; keep that. Together:
-  - .header.over-hero:not(.scrolled) => transparent glass over hero
-  - .header.scrolled => denser background
-*/
+/* --- 3. Header & Navigation (Glassmorphism) --- */
 .header {
-  position: fixed; top: 0; width: 100%; z-index: 1000;
-  background-color: var(--header-bg);
-  transition: background-color 0.3s, box-shadow 0.3s;
-  /* Glassy baseline */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-  border-bottom: 1px solid rgba(255,255,255,0.18);
-}
-
-/* Ultra glass at top, over hero */
-.header.over-hero:not(.scrolled) {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
   background-color: var(--header-glass);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  border-bottom: 1px solid rgba(255,255,255,0.22);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.4s ease;
 }
 
-/* Solid-ish on scroll */
 .header.scrolled {
   background-color: var(--header-glass-scrolled);
-  box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
 }
 
-/* Navbar layout */
-.navbar { padding: 1rem 0; }
 .nav-container {
-  max-width: 1200px; margin: 0 auto; padding: 0 20px;
-  display: flex; justify-content: space-between; align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Logo */
-.logo-text h2 { color: var(--text-color); margin: 0; font-size: 1.5rem; }
-.logo-text span { color: var(--primary-color); font-size: 0.9rem; font-weight: 700; }
-
-/* Nav menu */
-.nav-menu { display: flex; list-style: none; gap: 2rem; }
-
-/* Link base */
 .nav-link {
-  text-decoration: none;
-  color: var(--text-color);
-  font-weight: 500;
-  transition: color 0.3s ease;
+  font-weight: 600;
+  color: var(--brand-teal);
   position: relative;
+  padding-bottom: 5px;
 }
 
-/* Make links bright when header floats over hero (not scrolled) */
-.header.over-hero:not(.scrolled) .nav-link {
-  color: var(--nav-link-on-hero);
-}
-
-/* Hover underline */
 .nav-link::after {
   content: '';
   position: absolute;
-  bottom: -5px; left: 0;
-  width: 0; height: 2px; background-color: var(--primary-color);
-  transition: width 0.3s;
-}
-.nav-link:hover::after { width: 100%; }
-
-/* ===================== SEARCH BAR ===================== */
-.search-bar {
-  display: flex; align-items: center;
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 25px; overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  transition: background 0.3s ease;
-}
-.search-bar input {
-  border: none; outline: none; padding: 7px 12px; font-size: 0.9rem; width: 180px;
-  background: transparent; color: inherit;
-}
-.search-bar button {
-  background: var(--primary-color); border: none; color: #fff;
-  padding: 7px 14px; cursor: pointer; transition: background 0.3s ease;
-}
-.search-bar button:hover { background: #0056b3; }
-
-/* Make search ghostier when header is over hero and not scrolled */
-.header.over-hero:not(.scrolled) .search-bar {
-  background: rgba(255,255,255,0.15);
-  border: 1px solid rgba(255,255,255,0.22);
-}
-.header.over-hero:not(.scrolled) .search-bar input { color: var(--nav-link-on-hero); }
-
-/* ===================== FOOTER ===================== */
-.footer {
-  background-color: var(--footer-bg);
-  color: var(--light-color);
-  padding: 50px 0 20px;
-}
-.footer-content {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem; margin-bottom: 2rem;
-}
-.footer-section h3 { margin-bottom: 1.5rem; color: var(--primary-color); }
-.footer-section ul { list-style: none; }
-.footer-section ul li { margin-bottom: 0.5rem; }
-.footer-section a {
-  color: var(--light-color); text-decoration: none; transition: color 0.3s ease;
-}
-.footer-section a:hover { color: var(--primary-color); }
-.social-icons { display: flex; gap: 1rem; margin-top: 1rem; }
-.social-icons a { color: var(--light-color); font-size: 1.2rem; transition: color 0.3s ease; }
-.social-icons a:hover { color: var(--primary-color); }
-.footer-bottom {
-  text-align: center; padding-top: 2rem; border-top: 1px solid var(--secondary-color); color: var(--secondary-color);
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--brand-orange);
+  transition: width 0.3s ease;
 }
 
-/* ===================== OPTIONAL HELPERS ===================== */
-/*
-If your main content jumps under the fixed header on non-hero pages,
-add a spacer div with the header’s height. Example:
-  <div class="header-spacer"></div>
-and set:
-*/
-.header-spacer { height: 72px; }
+.nav-link:hover::after {
+  width: 100%;
+}
 
-/*
-For hero pages where you want the hero to sit UNDER the header glass,
-DO NOT use a spacer above the hero. Add 'over-hero' to the header on
-that route (your React can do this based on pathname).
-*/
+/* --- 4. Buttons & Badges --- */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 36px;
+  background: linear-gradient(135deg, var(--brand-orange), var(--brand-orange-dark));
+  color: #fff;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: var(--radius-pill);
+  border: none;
+  box-shadow: 0 8px 20px rgba(234, 143, 50, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(234, 143, 50, 0.6);
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 24px;
+  background: rgba(234, 143, 50, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(234, 143, 50, 0.3);
+  border-radius: var(--radius-pill);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--brand-orange-dark);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+/* --- 5. Hero Sections --- */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  animation: kenBurns 20s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(15, 30, 36, 0.8) 0%, rgba(43, 62, 75, 0.4) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  padding: 0 20px;
+  max-width: 1000px;
+}
+
+.hero-content h1 {
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  margin-bottom: 20px;
+  animation: fadeInUp 1s ease 0.2s both;
+}
+
+.hero-content p {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-family: var(--font-sans);
+  color: var(--brand-merino);
+  margin-bottom: 40px;
+  animation: fadeInUp 1s ease 0.4s both;
+}
+
+/* --- 6. Modern Cards (Destinations & Tours) --- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  padding: 40px 0;
+}
+
+.creative-card {
+  background: var(--bg-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: var(--shadow-medium);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+}
+
+.creative-card:hover {
+  transform: translateY(-12px);
+  box-shadow: var(--shadow-warm);
+  border-color: rgba(234, 143, 50, 0.4);
+}
+
+.card-img-wrapper {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+}
+
+.card-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease, filter 0.5s ease;
+}
+
+.creative-card:hover .card-img-wrapper img {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
+
+.card-tag {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(5px);
+  color: var(--brand-teal);
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  font-weight: 800;
+  font-size: 0.85rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  z-index: 2;
+}
+
+.card-content {
+  padding: 30px;
+  background: linear-gradient(180deg, #ffffff 0%, #fffaf3 100%);
+}
+
+.card-content h3 {
+  color: var(--brand-teal);
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+  transition: color 0.3s ease;
+}
+
+.creative-card:hover .card-content h3 {
+  color: var(--brand-orange);
+}
+
+.card-content p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.card-price {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--brand-orange);
+}
+
+/* --- 7. Sections Layout --- */
+.section-padding {
+  padding: 120px 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-title {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  color: var(--brand-teal);
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--brand-orange-light), var(--brand-orange));
+  border-radius: 2px;
+}
+
+/* --- 8. Glassmorphism Forms & CTA --- */
+.glass-form-wrapper {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-medium);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.form-input {
+  width: 100%;
+  padding: 15px 20px;
+  border: 2px solid rgba(234, 143, 50, 0.2);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--brand-teal);
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--brand-orange);
+  box-shadow: 0 0 0 4px rgba(234, 143, 50, 0.15);
+}
+
+/* --- 9. Horizontal Scroll (Tour Grid) --- */
+.horizontal-scroll-container {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  padding: 20px 40px 60px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--brand-orange) transparent;
+}
+
+.horizontal-scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+.horizontal-scroll-container::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.05);
+  border-radius: 10px;
+}
+.horizontal-scroll-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, var(--brand-orange), var(--brand-orange-light));
+  border-radius: 10px;
+}
+
+.scroll-item {
+  flex: 0 0 350px;
+  scroll-snap-align: center;
+}
+
+/* --- 10. Animations --- */
+@keyframes kenBurns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* --- 11. Responsive Design --- */
+@media (max-width: 992px) {
+  .section-padding { padding: 80px 0; }
+  .card-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+}
+
+@media (max-width: 768px) {
+  .nav-container { padding: 15px 20px; }
+  .hero-content h1 { font-size: 2.5rem; }
+  .glass-form-wrapper { padding: 25px; }
+  .horizontal-scroll-container { padding: 20px 20px 40px; }
+  .scroll-item { flex: 0 0 300px; }
+}
