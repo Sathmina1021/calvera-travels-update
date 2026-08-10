@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/calvera-travels-update/static/css/main.89a3a8b7.css",
+    "main.js": "/calvera-travels-update/static/js/main.09d800ad.js",
+    "static/js/453.a3492efa.chunk.js": "/calvera-travels-update/static/js/453.a3492efa.chunk.js",
+    "static/media/Without Text.png": "/calvera-travels-update/static/media/Without Text.e082c8cce2468afd1d2e.png",
+    "index.html": "/calvera-travels-update/index.html",
+    "main.89a3a8b7.css.map": "/calvera-travels-update/static/css/main.89a3a8b7.css.map",
+    "main.09d800ad.js.map": "/calvera-travels-update/static/js/main.09d800ad.js.map",
+    "453.a3492efa.chunk.js.map": "/calvera-travels-update/static/js/453.a3492efa.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.89a3a8b7.css",
+    "static/js/main.09d800ad.js"
+  ]
+}
