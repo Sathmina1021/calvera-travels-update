@@ -1,13 +1,13 @@
 /* ========================================
-   CALVERA CONTACT PAGE (Simple + Modal)
+   CALVERA CONTACT PAGE — Ceylon Luxury Theme
    ======================================== */
 
 /* Page */
 .contact-page {
-  background:  #f5f5dc !important;
+  background: #0a1310 !important;
   min-height: 100vh;
   overflow-x: hidden;
-  color: #0f1e24;
+  color: #f3ead9;
   padding-top: 100px;
 }
 
@@ -17,15 +17,15 @@
   text-align: center;
 }
 
-/* badge – fix invalid background */
+/* badge */
 .contact-header .badge {
   display: inline-block;
   font-size: 12px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  background: #f5f5dc;            /* fixed: was invalid rgba(#f5f5dc) */
-  border: 1px solid rgba(234, 143, 50, 0.4);
-  color: #ffb56e;
+  background: rgba(201, 162, 39, 0.12);
+  border: 1px solid rgba(201, 162, 39, 0.4);
+  color: #e8cf8a;
   border-radius: 999px;
   padding: 6px 12px;
 }
@@ -38,17 +38,18 @@
 /* make the line of text act like the main heading */
 .contact-header p {
   margin: 16px auto 0;
-  color: #2b3e4b;
+  color: #f3ead9;
   max-width: 700px;
   line-height: 1.6;
   font-size: clamp(18px, 2.4vw, 22px);
   font-weight: 600;
+  font-family: 'Playfair Display', serif;
 }
 
 .section-divider {
   width: 120px;
   height: 3px;
-  background: linear-gradient(90deg, transparent, #ea8f32, transparent);
+  background: linear-gradient(90deg, transparent, #c9a227, transparent);
   border-radius: 2px;
   margin: 20px auto 0;
 }
@@ -71,19 +72,19 @@
   gap: 26px;
 }
 .info-card {
-  background: #e8c697;
+  background: linear-gradient(160deg, #17251f, #101d19);
   backdrop-filter: blur(18px);
   border-radius: 18px;
   padding: 32px 26px;
-  border: 1px solid rgba(234, 143, 50, 0.22);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(201, 162, 39, 0.25);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
   text-align: center;
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
 .info-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(234, 143, 50, 0.45);
-  box-shadow: 0 20px 60px rgba(234, 143, 50, 0.28);
+  border-color: rgba(201, 162, 39, 0.55);
+  box-shadow: 0 20px 60px rgba(201, 162, 39, 0.22);
 }
 .info-icon {
   width: 70px;
@@ -92,55 +93,58 @@
   border-radius: 50%;
   display: grid;
   place-items: center;
-  background: linear-gradient(135deg, #ffd8a6);
-  box-shadow: 0 8px 24px rgba(234, 143, 50, 0.35);
+  background: linear-gradient(135deg, #e8cf8a, #c9a227);
+  box-shadow: 0 8px 24px rgba(201, 162, 39, 0.35);
 }
 .info-icon i {
   font-size: 1.6rem;
-  color: #0f1e24;
+  color: #0c1512;
 }
 .info-card h3 {
+  font-family: 'Playfair Display', serif;
   font-size: 1.3rem;
   font-weight: 800;
   margin: 4px 0 10px;
-  color: #2b3e4b
+  color: #f3ead9;
 }
 .info-card p {
   margin: 6px 0;
-  color: #5b3a29;
+  color: #b9ac93;
 }
 
 /* Form Section */
 .contact-form-section {
   padding: 36px 0 50px;
-  background: #f5f5dc;
+  background: #0a1310;
 }
 .section-header {
   text-align: center;
   margin-bottom: 28px;
 }
 .section-title {
+  font-family: 'Playfair Display', serif;
   font-size: clamp(24px, 4.2vw, 36px);
   font-weight: 800;
   margin: 0 0 10px;
   text-transform: uppercase;
   letter-spacing: -0.5px;
+  color: #f3ead9;
 }
 .section-subtitle {
   font-size: 1.05rem;
-  color: #1e3234;
+  color: #b9ac93;
   margin: 0;
 }
 
 .form-container {
   max-width: 900px;
   margin: 0 auto;
-  background: #f5f5dc;
+  background: linear-gradient(160deg, #131f1a, #0d1815);
   backdrop-filter: blur(18px);
   border-radius: 18px;
   padding: 30px;
-  border: 1px solid rgba(234, 143, 50, 0.22);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(201, 162, 39, 0.22);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
 .contact-form {
@@ -161,28 +165,28 @@
 .form-group label {
   font-weight: 700;
   font-size: 0.98rem;
-  color: #ffffff;
+  color: #e8cf8a;
 }
 .form-group input,
 .form-group textarea {
   padding: 14px 16px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(234, 143, 50, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(201, 162, 39, 0.3);
   border-radius: 12px;
-  color: #ffffff;
+  color: #f3ead9;
   font-size: 1rem;
   outline: none;
   transition: all 0.25s ease;
 }
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: rgba(255, 255, 255, 0.42);
+  color: rgba(243, 234, 217, 0.38);
 }
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: #e89a38;
-  box-shadow: 0 0 16px rgba(234, 143, 50, 0.28);
-  background: rgba(255, 255, 255, 0.12);
+  border-color: #c9a227;
+  box-shadow: 0 0 16px rgba(201, 162, 39, 0.28);
+  background: rgba(255, 255, 255, 0.08);
 }
 .form-group textarea {
   resize: vertical;
@@ -190,21 +194,21 @@
 }
 
 .error-text {
-  color: #1e3234;
+  color: #e0a15a;
   font-size: 0.85rem;
   font-weight: 600;
   margin-top: -2px;
 }
 input.error,
 textarea.error {
-  border-color: #e89a38 !important;
-  box-shadow: 0 0 10px rgba(255, 107, 107, 0.25) !important;
+  border-color: #b5572a !important;
+  box-shadow: 0 0 10px rgba(181, 87, 42, 0.3) !important;
 }
 
 .btn-submit {
   padding: 16px 28px;
-  background: linear-gradient(135deg, #ffd8a6, #e89a38);
-  color: #0f1e24;
+  background: linear-gradient(135deg, #e8cf8a, #c9a227);
+  color: #0c1512;
   border: none;
   border-radius: 12px;
   font-weight: 800;
@@ -216,12 +220,12 @@ textarea.error {
   justify-content: center;
   gap: 10px;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  box-shadow: 0 8px 24px rgba(234, 143, 50, 0.35);
+  box-shadow: 0 8px 24px rgba(201, 162, 39, 0.35);
   margin-top: 6px;
 }
 .btn-submit:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(234, 143, 50, 0.45);
+  box-shadow: 0 12px 28px rgba(201, 162, 39, 0.5);
 }
 .btn-submit:disabled {
   opacity: 0.7;
@@ -240,23 +244,25 @@ textarea.error {
 }
 .map-container iframe {
   border: 0;
-  filter: grayscale(0.2) contrast(1.15);
+  filter: grayscale(0.35) invert(0.92) contrast(0.9);
 }
 
 /* Social */
 .social-section {
   padding: 50px 0 70px;
   text-align: center;
-  background: #f5f5dc;
+  background: #0a1310;
 }
 .social-section h2 {
+  font-family: 'Playfair Display', serif;
   font-size: 2rem;
   font-weight: 800;
   margin: 0 0 6px;
+  color: #f3ead9;
 }
 .social-section p {
   font-size: 1.05rem;
-  color: #2b3e4b;
+  color: #b9ac93;
   margin: 0 0 20px;
 }
 .social-links {
@@ -272,26 +278,29 @@ textarea.error {
   display: grid;
   place-items: center;
   font-size: 1.35rem;
-  color: #ffffff;
+  color: #f3ead9;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
   text-decoration: none;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(201, 162, 39, 0.25);
 }
-.social-icon.facebook { background: linear-gradient(135deg, #1877f2, #0d5dbf); }
-.social-icon.instagram { background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af); }
-.social-icon.twitter { background: linear-gradient(135deg, #1da1f2, #0c85d0); }
-.social-icon.linkedin { background: linear-gradient(135deg, #0077b5, #005582); }
-.social-icon.youtube { background: linear-gradient(135deg, #ff0000, #cc0000); }
+.social-icon.facebook { background: linear-gradient(135deg, #1c2f28, #12211d); }
+.social-icon.instagram { background: linear-gradient(135deg, #2a2118, #17251f); }
+.social-icon.twitter { background: linear-gradient(135deg, #1c2f28, #12211d); }
+.social-icon.linkedin { background: linear-gradient(135deg, #1c2f28, #12211d); }
+.social-icon.youtube { background: linear-gradient(135deg, #2a2118, #17251f); }
 .social-icon:hover {
   transform: translateY(-6px) scale(1.06);
-  box-shadow: 0 12px 28px rgba(234, 143, 50, 0.35);
+  box-shadow: 0 12px 28px rgba(201, 162, 39, 0.35);
+  border-color: rgba(201, 162, 39, 0.6);
+  color: #e8cf8a;
 }
 
 /* ============= MODAL ============= */
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(8, 16, 20, 0.65);
+  background: rgba(3, 6, 5, 0.75);
   backdrop-filter: blur(6px);
   display: grid;
   place-items: center;
@@ -305,12 +314,12 @@ textarea.error {
 .modal-card {
   position: relative;
   width: min(92vw, 520px);
-  background: linear-gradient(135deg, #22404a, #1a3238);
-  border: 1px solid rgba(234, 143, 50, 0.25);
+  background: linear-gradient(135deg, #16241f, #0e1815);
+  border: 1px solid rgba(201, 162, 39, 0.3);
   border-radius: 18px;
   padding: 28px 22px 24px;
-  color: #fff7e8;
-  box-shadow: 0 24px 60px rgba(0,0,0,0.55), 0 0 50px rgba(234,143,50,0.12);
+  color: #f3ead9;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.6), 0 0 50px rgba(201,162,39,0.12);
   animation: modalSlide 0.28s ease;
 }
 @keyframes modalSlide {
@@ -325,11 +334,11 @@ textarea.error {
   height: 36px;
   border-radius: 50%;
   border: none;
-  background: #ea8f32;
-  color: #1c2f35;
+  background: #c9a227;
+  color: #0c1512;
   font-size: 1.2rem;
   cursor: pointer;
-  box-shadow: 0 6px 16px rgba(234,143,50,0.35);
+  box-shadow: 0 6px 16px rgba(201,162,39,0.4);
   transition: transform 0.2s ease;
 }
 .modal-close:hover { transform: rotate(90deg) scale(1.05); }
@@ -341,29 +350,30 @@ textarea.error {
   margin: 6px auto 10px;
   display: grid;
   place-items: center;
-  background: linear-gradient(135deg, #ea8f32, #d67820);
-  box-shadow: 0 10px 26px rgba(234,143,50,0.35);
+  background: linear-gradient(135deg, #c9a227, #8f7318);
+  box-shadow: 0 10px 26px rgba(201,162,39,0.4);
 }
-.modal-hero i { font-size: 2.2rem; color: #102027; }
+.modal-hero i { font-size: 2.2rem; color: #0c1512; }
 .modal-hero-glow {
   content: "";
   position: absolute;
   inset: -12px;
   border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(234,143,50,0.22), transparent 70%);
+  background: radial-gradient(closest-side, rgba(201,162,39,0.25), transparent 70%);
   filter: blur(10px);
   z-index: -1;
 }
 .modal-title {
   text-align: center;
   margin: 8px 0 6px;
+  font-family: 'Playfair Display', serif;
   font-size: 1.3rem;
   font-weight: 800;
   color: #ffffff;
 }
 .modal-text {
   text-align: center;
-  color: #f6ead3;
+  color: #d9cdb3;
   margin: 0 6px 14px;
   line-height: 1.55;
   font-size: 0.98rem;
@@ -388,22 +398,19 @@ textarea.error {
   .btn-submit { width: 100%; }
 }
 
-/* override info-grid layout to force 4/2/1 columns if desired */
+/* info-grid layout: force 4/2/1 columns */
 .info-grid {
   display: grid;
   gap: 26px;
-  /* large screens: 4 in a row */
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-/* medium screens: 2 per row (pairs) */
 @media (max-width: 1024px) {
   .info-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-/* small screens: 1 per row */
 @media (max-width: 600px) {
   .info-grid {
     grid-template-columns: 1fr;
