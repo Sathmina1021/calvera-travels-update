@@ -4,6 +4,7 @@ import Hero from "./Hero";
 import "./About.css";
 
 const AboutUs = () => {
+  // Use the same rotating-hero behavior via <Hero />
   const aboutHeroImages = [
     "/images/AboutUs/AHEROback/aboutback.jpg",
     "/images/AboutUs/AHEROback/Aheroback2.jpg",
@@ -21,7 +22,7 @@ const AboutUs = () => {
         url="https://calveratravels.com/about"
       />
 
-      {/* ===== HERO ===== */}
+      {/* ===== HERO (same style/behavior as Tours) ===== */}
       <Hero
         images={aboutHeroImages}
         title="About Calvera Travels"
@@ -34,143 +35,158 @@ const AboutUs = () => {
         showScrollIndicator
       />
 
-      {/* ===== WELCOME SECTION (Luxury Split Layout) ===== */}
-      <section className="luxe-welcome-section">
-        <div className="luxe-container">
-          <div className="welcome-grid">
-            <div className="welcome-text">
-              <span className="luxe-subtitle">Our Story</span>
-              <h2 className="luxe-heading">Welcome to Calvera Travel</h2>
-              <div className="luxe-divider"></div>
-              <p className="lead-text">
-                At Calvera, we believe every journey is crafted with passion, purpose, and a personal touch.
-              </p>
-              <p>
-                We are a full-service travel company based in Sri Lanka, curating unforgettable travel experiences across the island and beyond. Whether you seek a relaxing beach escape, a cultural adventure, or a luxury honeymoon, our team ensures every detail is handled with care.
-              </p>
-            </div>
-            <div className="welcome-image-box">
-              <div className="glass-experience-card" style={{ backgroundImage: "url('/images/AboutUs/Awelcomeback/Awelcomesec.jpg')" }}>
-                <div className="glass-overlay">
-                  <h3>Experience the Extraordinary</h3>
-                  <p>Your dream vacation, meticulously planned.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+      {/* ===== WELCOME SECTION ===== */}
+      <section
+        className="welcome-section"
+        style={{
+          backgroundImage: "url('/images/AboutUs/Awelcomeback/Awelcomesec.jpg')",
+        }}
+      >
+        <div className="overlay"></div>
+        <div className="welcome-content glass-card">
+          <h2>Welcome to Calvera Travel</h2>
+          <p>
+            At Calvera, we believe every journey is crafted with passion,
+            purpose, and a personal touch.
+          </p>
+          <p>
+            We are a full-service travel company based in Sri Lanka, curating
+            unforgettable travel experiences across the island and beyond.
+          </p>
+          <p>
+            Whether you seek a relaxing beach escape, a cultural adventure, or a
+            luxury honeymoon, our team ensures every detail is handled with care.
+          </p>
         </div>
       </section>
 
-      {/* ===== WHAT WE DO SECTION (Modern Grid) ===== */}
-      <section className="luxe-services-section" style={{ backgroundImage: "url('/images/AboutUs/Awhatwedoback/AWWDO.jpg')" }}>
-        <div className="dark-glass-overlay"></div>
-        <div className="luxe-container relative-z">
-          <div className="section-header-center text-white">
-            <span className="luxe-subtitle-gold">Our Expertise</span>
-            <h2 className="luxe-heading text-white">What We Do</h2>
-            <p className="header-desc">Specializing in custom-designed travel experiences that suit your style, budget, and purpose.</p>
-          </div>
-          
-          <div className="services-grid">
-            <div className="service-card">
-              <i className="fas fa-map-marked-alt"></i>
-              <h4>Tailor-made Tours</h4>
-              <p>Personalized itineraries designed entirely around your unique interests.</p>
-            </div>
-            <div className="service-card">
-              <i className="fas fa-hotel"></i>
-              <h4>Hotels & Transport</h4>
-              <p>Comfortable, premium stays and highly reliable transfers across Sri Lanka.</p>
-            </div>
-            <div className="service-card">
-              <i className="fas fa-leaf"></i>
-              <h4>Adventure & Nature</h4>
-              <p>From misty hill-country treks to thrilling deep-ocean safaris.</p>
-            </div>
-            <div className="service-card">
-              <i className="fas fa-vihara"></i>
-              <h4>Culture & Heritage</h4>
-              <p>Explore the rich traditions, ancient temples, and vibrant festivals.</p>
-            </div>
-          </div>
+      {/* ===== WHAT WE DO SECTION ===== */}
+      <section
+        className="what-we-do-section"
+        style={{ backgroundImage: "url('/images/AboutUs/Awhatwedoback/AWWDO.jpg')" }}
+      >
+        <div className="overlay"></div>
+        <div className="whatwedo-content">
+          <h2>What We Do</h2>
+          <p>
+            At Calvera, we specialize in custom-designed travel experiences that
+            suit your style, budget, and purpose.
+          </p>
+          <ul>
+            <li>
+              <strong>Tailor-made Tours –</strong> Personalized itineraries
+              designed around your interests.
+            </li>
+            <li>
+              <strong>Hotel Bookings & Transport –</strong> Comfortable stays and
+              reliable transfers across Sri Lanka.
+            </li>
+            <li>
+              <strong>Adventure & Nature Tours –</strong> From misty hill-country
+              treks to ocean safaris.
+            </li>
+            <li>
+              <strong>Cultural & Heritage Trips –</strong> Explore the rich
+              traditions, temples, and festivals of our island.
+            </li>
+            <li>
+              <strong>Corporate & Group Travel –</strong> Seamless planning for
+              meetings, incentives, and events.
+            </li>
+          </ul>
+          <p>
+            We combine local knowledge with global standards to bring you
+            experiences that are authentic, safe, and unforgettable.
+          </p>
         </div>
       </section>
 
-      {/* ===== OUR PROMISE SECTION (Elegant Timeline/Cards) ===== */}
-      <section id="our-promise" className="luxe-promise-section">
-        <div className="luxe-container">
-          <div className="promise-wrapper">
-            <div className="promise-content">
-              <span className="luxe-subtitle">Commitment to Excellence</span>
-              <h2 className="luxe-heading">Our Promise</h2>
-              <p className="lead-text">To deliver journeys filled with trust, comfort, and inspiration.</p>
-              <p>We believe every traveler deserves more than a tour; they deserve an experience that feels personal, meaningful, and perfectly planned.</p>
-              
-              <ul className="luxe-check-list mt-4">
-                <li><i className="fas fa-check-circle"></i> Listen carefully to your needs and expectations.</li>
-                <li><i className="fas fa-check-circle"></i> Provide transparent pricing and honest guidance.</li>
-                <li><i className="fas fa-check-circle"></i> Ensure safety, comfort, and responsible travel.</li>
-                <li><i className="fas fa-check-circle"></i> Available 24/7 for dedicated support.</li>
-              </ul>
-            </div>
-            <div className="promise-image" style={{ backgroundImage: "url('/images/AboutUs/Aourpromiseback/Apromiseback.jpg')" }}>
-              <div className="gold-border-frame"></div>
-            </div>
-          </div>
+      {/* ===== OUR PROMISE SECTION ===== */}
+      <section
+        id="our-promise"
+        className="our-promise-section"
+        style={{ backgroundImage: "url('/images/AboutUs/Aourpromiseback/Apromiseback.jpg')" }}
+      >
+        <div className="overlay"></div>
+        <div className="ourpromise-content">
+          <h2>Our Promise</h2>
+          <p>
+            To deliver journeys filled with trust, comfort, and inspiration. We
+            believe every traveler deserves more than a tour; they deserve an
+            experience that feels personal, meaningful, and perfectly planned.
+          </p>
+          <ul>
+            <li>Listen carefully to your needs and expectations.</li>
+            <li>Provide transparent pricing and honest guidance.</li>
+            <li>Ensure safety, comfort, and responsible travel practices.</li>
+            <li>Be available 24/7 for support and assistance.</li>
+            <li>
+              Help you discover the soul of each place with confidence and care.
+            </li>
+          </ul>
         </div>
       </section>
 
-      {/* ===== CALVERA MEANING SECTION (Creative Acronym) ===== */}
-      <section className="luxe-meaning-section" style={{ backgroundImage: "url('/images/AboutUs/Awhychose/AWCCT.jpg')" }}>
-        <div className="dark-glass-overlay"></div>
-        <div className="luxe-container relative-z">
-          <div className="section-header-center text-white">
-            <span className="luxe-subtitle-gold">The Essence of Our Brand</span>
-            <h2 className="luxe-heading text-white">Meaning of CALVERA</h2>
-          </div>
-          
-          <div className="acronym-grid">
-            <div className="acronym-box"><span>C</span><div className="ac-text"><strong>Culture & Connection</strong>Celebrating heritage and traditions.</div></div>
-            <div className="acronym-box"><span>A</span><div className="ac-text"><strong>Adventure</strong>Exploring new places with wonder.</div></div>
-            <div className="acronym-box"><span>L</span><div className="ac-text"><strong>Luxury & Leisure</strong>Offering premium comfort in every journey.</div></div>
-            <div className="acronym-box"><span>V</span><div className="ac-text"><strong>Vision</strong>Shaping the future of tourism.</div></div>
-            <div className="acronym-box"><span>E</span><div className="ac-text"><strong>Experience</strong>Creating moments that last a lifetime.</div></div>
-            <div className="acronym-box"><span>R</span><div className="ac-text"><strong>Reliability</strong>Trusted service for all travelers.</div></div>
-            <div className="acronym-box"><span>A</span><div className="ac-text"><strong>Authenticity</strong>Genuine experiences rooted in real stories.</div></div>
-          </div>
+      {/* ===== CALVERA MEANING SECTION ===== */}
+      <section
+        className="calvera-meaning-section"
+        style={{ backgroundImage: "url('/images/AboutUs/Awhychose/AWCCT.jpg')" }}
+      >
+        <div className="overlay"></div>
+        <div className="calvera-content">
+          <h2>Meaning of CALVERA</h2>
+          <ul>
+            <li>
+              <strong>C → Culture & Connection –</strong> celebrating heritage and
+              traditions of Sri Lanka and the world.
+            </li>
+            <li>
+              <strong>A → Adventure –</strong> exploring new places with excitement
+              and wonder.
+            </li>
+            <li>
+              <strong>L → Luxury & Leisure –</strong> offering comfort and quality
+              in every journey.
+            </li>
+            <li>
+              <strong>V → Vision –</strong> shaping the future of tourism with
+              creativity.
+            </li>
+            <li>
+              <strong>E → Experience –</strong> creating moments that last a
+              lifetime.
+            </li>
+            <li>
+              <strong>R → Reliability –</strong> trusted service for travelers.
+            </li>
+            <li>
+              <strong>A → Authenticity –</strong> genuine experiences rooted in
+              real stories and tradition.
+            </li>
+          </ul>
         </div>
       </section>
 
-      {/* ===== WHY CHOOSE SECTION (Premium Icon Grid) ===== */}
-      <section className="luxe-why-choose-section">
-        <div className="luxe-container">
-          <div className="section-header-center">
-            <h2 className="luxe-heading">Why Choose Calvera</h2>
-            <p className="header-desc">We don’t just take you places — we help you experience them in ways you’ll never forget.</p>
-          </div>
-          
-          <div className="features-grid">
-            <div className="feature-item">
-              <div className="f-icon"><i className="fas fa-user-tie"></i></div>
-              <h5>Expert Planners</h5>
-              <p>Professional, highly experienced travel curators.</p>
-            </div>
-            <div className="feature-item">
-              <div className="f-icon"><i className="fas fa-route"></i></div>
-              <h5>Personalized</h5>
-              <p>Tailored itineraries for every type of traveler.</p>
-            </div>
-            <div className="feature-item">
-              <div className="f-icon"><i className="fas fa-handshake"></i></div>
-              <h5>Trusted Partners</h5>
-              <p>Strong partnerships with premium hotels.</p>
-            </div>
-            <div className="feature-item">
-              <div className="f-icon"><i className="fas fa-headset"></i></div>
-              <h5>24/7 Support</h5>
-              <p>Round-the-clock on-ground assistance.</p>
-            </div>
-          </div>
+      {/* ===== WHY CHOOSE SECTION ===== */}
+      <section
+        className="why-choose-section"
+        style={{ backgroundImage: "url('/images/AboutUs/aboutus back/ABUSBAK2.jpg')" }}
+      >
+        <div className="overlay"></div>
+        <div className="why-choose-content">
+          <h2>Why Choose Calvera Travel</h2>
+          <ul>
+            <li>Professional, experienced travel planners.</li>
+            <li>Personalized itineraries for every type of traveler.</li>
+            <li>Strong partnerships with trusted hotels and tour operators.</li>
+            <li>24/7 traveler support and on-ground assistance.</li>
+            <li>Commitment to sustainable and ethical tourism.</li>
+            <li>Transparent communication and flexible booking options.</li>
+          </ul>
+          <p>
+            We don’t just take you places — we help you experience them in ways
+            you’ll never forget.
+          </p>
         </div>
       </section>
     </div>
