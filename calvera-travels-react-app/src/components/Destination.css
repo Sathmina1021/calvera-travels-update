@@ -1,14 +1,14 @@
 /* =========================================================
-   Destination.css – Refined Modern UI (Calvera Travels)
+   Destination.css – Ceylon Luxury UI (Calvera Travels)
    ========================================================= */
 
 :root {
-  --pale-peach: #ffefd9;
-  --accent-orange: #eb9438;
-  --dark-teal: #2b3e4b;
-  --white: #ffffff;
-  --light-teal: #eaf1f3;
-  --shadow-soft: 0 4px 10px rgba(0, 0, 0, 0.08);
+  --pale-peach: #0a1310;
+  --accent-orange: #c9a227;
+  --dark-teal: #f3ead9;
+  --white: #14211c;
+  --light-teal: #1c2d27;
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.4);
   --radius-lg: 16px;
   --radius-pill: 999px;
   --font-serif: "Playfair Display", serif;
@@ -30,16 +30,17 @@
   background: var(--pale-peach);
 }
 
-/* ===== Container (less side space, wider content) ===== */
+/* ===== Container ===== */
 .container {
-  max-width: 1400px;   /* wider so cards use more width */
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 10px;     /* reduced side padding */
+  padding: 0 10px;
 }
 
 /* ===== Toolbar ===== */
 .toolbar {
   background: var(--white);
+  border: 1px solid rgba(201, 162, 39, 0.2);
   border-radius: var(--radius-lg);
   padding: 25px;
   margin-bottom: 40px;
@@ -59,7 +60,7 @@
 .filter-btn {
   padding: 10px 20px;
   border-radius: var(--radius-pill);
-  border: 1px solid var(--dark-teal);
+  border: 1px solid rgba(201, 162, 39, 0.4);
   background: transparent;
   color: var(--dark-teal);
   font-weight: 600;
@@ -70,13 +71,13 @@
 .filter-btn:hover {
   background: var(--accent-orange);
   border-color: var(--accent-orange);
-  color: var(--white);
+  color: #0c1512;
 }
 
 .filter-btn.active {
-  background: var(--dark-teal);
-  color: var(--white);
-  border-color: var(--dark-teal);
+  background: linear-gradient(135deg, #e8cf8a, #c9a227);
+  color: #0c1512;
+  border-color: var(--accent-orange);
 }
 
 /* ===== Search & Sort ===== */
@@ -98,17 +99,21 @@
   width: 100%;
   padding: 10px 44px;
   border-radius: var(--radius-pill);
-  border: 1px solid var(--dark-teal);
-  background: var(--white);
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  background: var(--light-teal);
   color: var(--dark-teal);
   font-size: 0.95rem;
   outline: none;
   transition: all 0.3s ease;
 }
 
+.search-input::placeholder {
+  color: rgba(243, 234, 217, 0.45);
+}
+
 .search-input:focus {
   border-color: var(--accent-orange);
-  box-shadow: 0 0 6px rgba(235, 148, 56, 0.4);
+  box-shadow: 0 0 6px rgba(201, 162, 39, 0.4);
 }
 
 .search-icon {
@@ -117,7 +122,7 @@
   top: 50%;
   transform: translateY(-50%);
   color: var(--dark-teal);
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 .clear-search {
@@ -127,7 +132,7 @@
   transform: translateY(-50%);
   background: var(--accent-orange);
   border: none;
-  color: var(--white);
+  color: #0c1512;
   border-radius: 50%;
   width: 24px;
   height: 24px;
@@ -136,14 +141,14 @@
 }
 
 .clear-search:hover {
-  background: var(--dark-teal);
+  background: #e8cf8a;
 }
 
 .sort-select {
   padding: 10px 16px;
   border-radius: var(--radius-pill);
-  border: 1px solid var(--dark-teal);
-  background: var(--white);
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  background: var(--light-teal);
   color: var(--dark-teal);
   cursor: pointer;
   font-weight: 500;
@@ -157,7 +162,7 @@
 /* ===== Cards Grid (4 per row on desktop) ===== */
 .destinations-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 destinations per row */
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 }
 
@@ -170,12 +175,13 @@
   text-decoration: none;
   box-shadow: var(--shadow-soft);
   transition: all 0.3s ease;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(201, 162, 39, 0.18);
 }
 
 .destination-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 32px rgba(201, 162, 39, 0.2);
+  border-color: rgba(201, 162, 39, 0.5);
 }
 
 .card-image {
@@ -189,19 +195,21 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
+  filter: brightness(0.95);
 }
 
 .destination-card:hover .card-image img {
   transform: scale(1.05);
+  filter: brightness(1.02);
 }
 
 .fav-btn {
   position: absolute;
   top: 12px;
   right: 12px;
-  background: var(--accent-orange);
-  border: none;
-  color: var(--white);
+  background: rgba(12, 21, 18, 0.75);
+  border: 1px solid rgba(201, 162, 39, 0.4);
+  color: var(--accent-orange);
   border-radius: 50%;
   width: 36px;
   height: 36px;
@@ -213,8 +221,10 @@
   transition: all 0.3s ease;
 }
 
-.fav-btn:hover {
-  background: var(--dark-teal);
+.fav-btn:hover,
+.fav-btn.active {
+  background: var(--accent-orange);
+  color: #0c1512;
 }
 
 .card-content {
@@ -229,21 +239,25 @@
   color: var(--dark-teal);
 }
 
+.destination-card:hover .card-content h3 {
+  color: var(--accent-orange);
+}
+
 .card-tagline {
   font-size: 0.95rem;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(243, 234, 217, 0.6);
 }
 
 /* ===== Responsive ===== */
 @media (max-width: 1200px) {
   .destinations-grid {
-    grid-template-columns: repeat(3, 1fr); /* 3 per row */
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 900px) {
   .destinations-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 per row */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -255,6 +269,6 @@
 
 @media (max-width: 600px) {
   .destinations-grid {
-    grid-template-columns: 1fr; /* 1 per row on phones */
+    grid-template-columns: 1fr;
   }
 }
