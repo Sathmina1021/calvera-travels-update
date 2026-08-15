@@ -1,419 +1,664 @@
-/* =========================================================
-   Luxury About Page Styles - Calvera Travels
-   ========================================================= */
-
+/* ==================== Global About Page Styles ==================== */
 .about-page {
-    background-color: var(--brand-peach, #F5F5DC);
-    color: var(--brand-teal, #2b3e4b);
+    font-family: 'Poppins', sans-serif;
+    background-color: #070c0a;
     overflow-x: hidden;
 }
 
-.luxe-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 30px;
-}
-
-.relative-z {
+/* ==================== HERO SECTION ==================== */
+.hero-section {
     position: relative;
-    z-index: 2;
+    height: 100vh;
+    min-height: 600px;
+    overflow: hidden;
 }
 
-/* Typography & Headers */
-.luxe-subtitle {
-    display: block;
-    font-family: var(--font-sans, 'Poppins', sans-serif);
-    color: var(--brand-orange, #ea8f32);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-}
-
-.luxe-subtitle-gold {
-    display: block;
-    font-family: var(--font-sans, 'Poppins', sans-serif);
-    color: #ffd8a6;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-}
-
-.luxe-heading {
-    font-family: var(--font-serif, 'Playfair Display', serif);
-    font-size: clamp(2.5rem, 4vw, 3.5rem);
-    font-weight: 800;
-    color: var(--brand-teal, #2b3e4b);
-    line-height: 1.2;
-    margin-bottom: 20px;
-}
-
-.text-white {
-    color: #ffffff !important;
-}
-
-.luxe-divider {
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--brand-orange, #ea8f32), #ffb56e);
-    border-radius: 2px;
-    margin-bottom: 30px;
-}
-
-.lead-text {
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: var(--brand-teal, #2b3e4b);
-    line-height: 1.8;
-    margin-bottom: 20px;
-}
-
-.section-header-center {
-    text-align: center;
-    margin-bottom: 60px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.header-desc {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.85);
-    line-height: 1.8;
-}
-
-.luxe-why-choose-section .header-desc {
-    color: var(--text-muted, #6b7a86);
-}
-
-/* ==================== WELCOME SECTION ==================== */
-.luxe-welcome-section {
-    padding: 120px 0;
-    background: #ffffff;
-}
-
-.welcome-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-}
-
-.welcome-text p {
-    color: var(--text-muted, #6b7a86);
-    line-height: 1.8;
-    font-size: 1.05rem;
-}
-
-.welcome-image-box {
-    position: relative;
-    height: 500px;
-    border-radius: 30px;
-    padding: 20px;
-    background: var(--brand-peach, #F5F5DC);
-}
-
-.glass-experience-card {
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 20px;
     background-size: cover;
     background-position: center;
-    position: relative;
-    overflow: hidden;
-    box-shadow: var(--shadow-medium, 0 16px 40px rgba(15, 23, 42, 0.08));
-    display: flex;
-    align-items: flex-end;
+    background-repeat: no-repeat;
+    transition: background-image 1.5s ease-in-out;
+    animation: kenBurns 20s ease-in-out infinite alternate;
 }
 
-.glass-overlay {
-    width: 100%;
-    padding: 40px 30px;
-    background: rgba(43, 62, 75, 0.85);
-    backdrop-filter: blur(10px);
-    color: white;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+@keyframes kenBurns {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
 }
 
-.glass-overlay h3 {
-    font-family: var(--font-serif);
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-}
-
-/* ==================== WHAT WE DO (SERVICES) ==================== */
-.luxe-services-section {
-    padding: 120px 0;
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
-
-.dark-glass-overlay {
+.hero-overlay {
     position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(15, 30, 36, 0.9), rgba(43, 62, 75, 0.85));
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(7, 12, 10, 0.82) 0%, rgba(201, 162, 39, 0.18) 50%, rgba(18, 33, 29, 0.35) 100%);
     z-index: 1;
 }
 
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
+.hero-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    color: #fff;
 }
 
-.service-card {
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 28px;
+    background: rgba(201, 162, 39, 0.12);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(201, 162, 39, 0.35);
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    animation: fadeInDown 1s ease;
+}
+
+.hero-badge i {
+    color: #e8cf8a;
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 1.2s ease;
+}
+
+.hero-content h1 span {
+    background: linear-gradient(135deg, #e8cf8a, #c9a227, #8f7318);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-content > p {
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 50px;
+    max-width: 700px;
+    color: rgba(243, 234, 217, 0.9);
+    animation: fadeInUp 1.4s ease;
+}
+
+/* Hero Stats */
+.hero-stats {
+    display: flex;
+    gap: 60px;
+    margin-top: 30px;
+    animation: fadeInUp 1.6s ease;
+}
+
+.hero-stats > div {
+    position: relative;
+    padding: 25px 35px;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 40px 30px;
-    border-radius: 24px;
+    border-radius: 20px;
+    border: 2px solid rgba(201, 162, 39, 0.22);
     transition: all 0.4s ease;
 }
 
-.service-card:hover {
-    background: rgba(255, 255, 255, 0.1);
+.hero-stats > div:hover {
     transform: translateY(-10px);
-    border-color: rgba(234, 143, 50, 0.5);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    background: rgba(201, 162, 39, 0.1);
+    border-color: rgba(201, 162, 39, 0.5);
+    box-shadow: 0 15px 40px rgba(201, 162, 39, 0.25);
 }
 
-.service-card i {
-    font-size: 3rem;
-    color: var(--brand-orange, #ea8f32);
-    margin-bottom: 25px;
-    display: inline-block;
+.hero-stats h3 {
+    font-size: 42px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #e8cf8a, #c9a227);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 5px;
 }
 
-.service-card h4 {
-    color: #ffffff;
-    font-size: 1.4rem;
-    margin-bottom: 15px;
-    font-family: var(--font-sans);
-    font-weight: 700;
+.hero-stats p {
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(243, 234, 217, 0.8);
+    margin: 0;
 }
 
-.service-card p {
-    color: rgba(255, 255, 255, 0.75);
-    line-height: 1.7;
-    font-size: 0.95rem;
+/* ===== Scroll Progress Indicator ===== */
+.scroll-indicator-bottom {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 6px;
+  width: 80%;
+  background: linear-gradient(90deg, #c9a227, #b5572a);
+  border-radius: 10px;
+  transform-origin: 0% 50%;
+  z-index: 20;
+  opacity: 0.9;
 }
 
-/* ==================== OUR PROMISE ==================== */
-.luxe-promise-section {
-    padding: 120px 0;
-    background: #ffffff;
-}
 
-.promise-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-}
-
-.luxe-check-list {
-    list-style: none;
-    padding: 0;
-    margin-top: 30px;
-}
-
-.luxe-check-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    margin-bottom: 20px;
-    font-size: 1.05rem;
-    color: var(--text-muted, #6b7a86);
-    line-height: 1.6;
-}
-
-.luxe-check-list i {
-    color: var(--brand-orange, #ea8f32);
-    font-size: 1.4rem;
-    margin-top: 3px;
-}
-
-.promise-image {
-    height: 600px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 30px 0 30px 0;
+/* ==================== WELCOME SECTION ==================== */
+.welcome-section {
     position: relative;
-    box-shadow: var(--shadow-medium);
-}
-
-.gold-border-frame {
-    position: absolute;
-    inset: -20px;
-    border: 2px solid var(--brand-orange, #ea8f32);
-    border-radius: 30px 0 30px 0;
-    z-index: -1;
-    opacity: 0.5;
-}
-
-/* ==================== CALVERA MEANING ==================== */
-.luxe-meaning-section {
-    padding: 120px 0;
-    position: relative;
+    padding: 120px 20px;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    overflow: hidden;
 }
 
-.acronym-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 800px;
+.welcome-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(7, 12, 10, 0.82), rgba(18, 33, 29, 0.5));
+    z-index: 1;
+}
+
+.welcome-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
     margin: 0 auto;
-}
-
-.acronym-box {
-    display: flex;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 20px 30px;
-    transition: all 0.3s ease;
-}
-
-.acronym-box:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: var(--brand-orange, #ea8f32);
-    transform: translateX(10px);
-}
-
-.acronym-box span {
-    font-family: var(--font-serif);
-    font-size: 3rem;
-    font-weight: 900;
-    color: var(--brand-orange, #ea8f32);
-    width: 60px;
-    line-height: 1;
-}
-
-.ac-text {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
-.ac-text strong {
-    display: block;
-    color: #ffffff;
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 5px;
-    font-family: var(--font-sans);
-}
-
-/* ==================== WHY CHOOSE US ==================== */
-.luxe-why-choose-section {
-    padding: 120px 0;
-    background: var(--brand-peach, #F5F5DC);
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 40px;
-    margin-top: 50px;
-}
-
-.feature-item {
     text-align: center;
-    background: #ffffff;
-    padding: 40px 30px;
-    border-radius: 24px;
-    box-shadow: var(--shadow-soft, 0 8px 24px rgba(0, 0, 0, 0.06));
-    border: 1px solid rgba(0,0,0,0.03);
-    transition: all 0.3s ease;
 }
 
-.feature-item:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-medium, 0 16px 40px rgba(15, 23, 42, 0.08));
-    border-bottom: 4px solid var(--brand-orange, #ea8f32);
+.glass-card {
+    padding: 60px 50px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    border: 2px solid rgba(201, 162, 39, 0.22);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
 }
 
-.f-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 25px;
-    background: rgba(234, 143, 50, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--brand-orange, #ea8f32);
-    font-size: 2rem;
-    transition: all 0.3s ease;
-}
-
-.feature-item:hover .f-icon {
-    background: var(--brand-orange, #ea8f32);
-    color: #ffffff;
-    transform: scale(1.1);
-}
-
-.feature-item h5 {
-    font-size: 1.3rem;
-    color: var(--brand-teal, #2b3e4b);
-    margin-bottom: 15px;
-    font-family: var(--font-sans);
+.welcome-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
     font-weight: 700;
+    color: #fff;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
 }
 
-.feature-item p {
-    color: var(--text-muted, #6b7a86);
-    font-size: 0.95rem;
-    line-height: 1.6;
+.welcome-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #c9a227, #e8cf8a);
+    border-radius: 2px;
 }
 
-/* ==================== RESPONSIVE ==================== */
-@media (max-width: 992px) {
-    .welcome-grid, .promise-wrapper {
-        grid-template-columns: 1fr;
-        gap: 50px;
+.welcome-content p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: rgba(243, 234, 217, 0.9);
+    margin-bottom: 20px;
+}
+
+/* ==================== WHAT WE DO SECTION ==================== */
+.what-we-do-section {
+    position: relative;
+    padding: 120px 20px;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.what-we-do-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(18, 33, 29, 0.88), rgba(7, 12, 10, 0.75));
+    z-index: 1;
+}
+
+.whatwedo-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 50px;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(15px);
+    border-radius: 30px;
+    border: 2px solid rgba(201, 162, 39, 0.22);
+}
+
+.whatwedo-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.whatwedo-content > p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: rgba(243, 234, 217, 0.92);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.whatwedo-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+}
+
+.whatwedo-content ul li {
+    font-size: 17px;
+    line-height: 1.8;
+    color: rgba(243, 234, 217, 0.88);
+    margin-bottom: 20px;
+    padding-left: 35px;
+    position: relative;
+}
+
+.whatwedo-content ul li::before {
+    content: '\f00c';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: #c9a227;
+    font-size: 16px;
+}
+
+.whatwedo-content ul li strong {
+    color: #e8cf8a;
+    font-weight: 600;
+}
+
+/* ==================== OUR PROMISE SECTION ==================== */
+.our-promise-section {
+    position: relative;
+    padding: 120px 20px;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.our-promise-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(18, 33, 29, 0.85), rgba(7, 12, 10, 0.78));
+    z-index: 1;
+}
+
+.ourpromise-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 50px;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(15px);
+    border-radius: 30px;
+    border: 2px solid rgba(201, 162, 39, 0.22);
+}
+
+.ourpromise-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #f3ead9;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.ourpromise-content > p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: rgba(243, 234, 217, 0.92);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.ourpromise-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+}
+
+.ourpromise-content ul li {
+    font-size: 17px;
+    line-height: 1.8;
+    color: rgba(243, 234, 217, 0.88);
+    margin-bottom: 20px;
+    padding-left: 35px;
+    position: relative;
+}
+
+.ourpromise-content ul li::before {
+    content: '\f004';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: #b5572a;
+    font-size: 16px;
+}
+
+/* ==================== CALVERA MEANING SECTION ==================== */
+.calvera-meaning-section {
+    position: relative;
+    padding: 120px 20px;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.calvera-meaning-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(10, 18, 15, 0.9), rgba(7, 12, 10, 0.8));
+    z-index: 1;
+}
+
+.calvera-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 50px;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(15px);
+    border-radius: 30px;
+    border: 2px solid rgba(201, 162, 39, 0.22);
+}
+
+.calvera-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.calvera-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.calvera-content ul li {
+    font-size: 17px;
+    line-height: 1.8;
+    color: rgba(243, 234, 217, 0.9);
+    margin-bottom: 25px;
+    padding: 20px 25px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    border-left: 4px solid #c9a227;
+    transition: all 0.3s ease;
+}
+
+.calvera-content ul li:hover {
+    background: rgba(201, 162, 39, 0.08);
+    transform: translateX(10px);
+    border-left-color: #b5572a;
+}
+
+.calvera-content ul li strong {
+    color: #e8cf8a;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+/* ==================== WHY CHOOSE SECTION ==================== */
+.why-choose-section {
+    position: relative;
+    padding: 120px 20px;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+.why-choose-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(7, 12, 10, 0.88), rgba(18, 33, 29, 0.75));
+    z-index: 1;
+}
+
+.why-choose-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 50px;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(15px);
+    border-radius: 30px;
+    border: 2px solid rgba(201, 162, 39, 0.22);
+}
+
+.why-choose-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #f3ead9;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.why-choose-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+}
+
+.why-choose-content ul li {
+    font-size: 17px;
+    line-height: 1.8;
+    color: rgba(243, 234, 217, 0.88);
+    margin-bottom: 20px;
+    padding-left: 35px;
+    position: relative;
+}
+
+.why-choose-content ul li::before {
+    content: '\f058';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: #c9a227;
+    font-size: 16px;
+}
+
+.why-choose-content > p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: rgba(243, 234, 217, 0.95);
+    margin-top: 30px;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 56px;
     }
     
-    .promise-image {
-        order: -1;
-        height: 400px;
+    .hero-stats {
+        gap: 40px;
     }
     
-    .gold-border-frame {
-        inset: -10px;
+    .welcome-content h2,
+    .whatwedo-content h2,
+    .ourpromise-content h2,
+    .calvera-content h2,
+    .why-choose-content h2 {
+        font-size: 40px;
     }
 }
 
 @media (max-width: 768px) {
-    .luxe-welcome-section, .luxe-services-section, .luxe-promise-section, .luxe-meaning-section, .luxe-why-choose-section {
-        padding: 80px 0;
+    .hero-section {
+        height: auto;
+        min-height: 500px;
     }
     
-    .luxe-heading {
-        font-size: 2.2rem;
+    .hero-content h1 {
+        font-size: 42px;
     }
     
-    .welcome-image-box {
-        height: 400px;
+    .hero-content > p {
+        font-size: 18px;
     }
     
-    .acronym-box {
+    .hero-stats {
         flex-direction: column;
-        text-align: center;
+        gap: 20px;
     }
     
-    .acronym-box span {
-        margin-bottom: 10px;
-        width: auto;
+    .hero-stats > div {
+        padding: 20px 30px;
+    }
+    
+    .welcome-section,
+    .what-we-do-section,
+    .our-promise-section,
+    .calvera-meaning-section,
+    .why-choose-section {
+        padding: 80px 20px;
+    }
+    
+    .glass-card,
+    .whatwedo-content,
+    .ourpromise-content,
+    .calvera-content,
+    .why-choose-content {
+        padding: 40px 30px;
+    }
+    
+    .welcome-content h2,
+    .whatwedo-content h2,
+    .ourpromise-content h2,
+    .calvera-content h2,
+    .why-choose-content h2 {
+        font-size: 36px;
+    }
+    
+    .welcome-content p,
+    .whatwedo-content > p,
+    .ourpromise-content > p,
+    .why-choose-content > p {
+        font-size: 16px;
+    }
+    
+    .whatwedo-content ul li,
+    .ourpromise-content ul li,
+    .calvera-content ul li,
+    .why-choose-content ul li {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 32px;
+    }
+    
+    .hero-content > p {
+        font-size: 16px;
+    }
+    
+    .hero-badge {
+        font-size: 12px;
+        padding: 10px 20px;
+    }
+    
+    .hero-stats h3 {
+        font-size: 32px;
+    }
+    
+    .welcome-content h2,
+    .whatwedo-content h2,
+    .ourpromise-content h2,
+    .calvera-content h2,
+    .why-choose-content h2 {
+        font-size: 28px;
+    }
+    
+    .glass-card,
+    .whatwedo-content,
+    .ourpromise-content,
+    .calvera-content,
+    .why-choose-content {
+        padding: 30px 20px;
     }
 }
